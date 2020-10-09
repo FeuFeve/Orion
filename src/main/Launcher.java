@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,16 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-public class Main extends Application {
+public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/game_view.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -26,18 +25,19 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Writer writer = new FileWriter("test.json");
+//        Writer writer = new FileWriter("config/commands.json");
 
 //        TestObject testObject = new TestObject(2, 5);
 
 //        gson.toJson(testObject, writer);
 
-        writer.flush();
-        writer.close();
+//        writer.flush();
+//        writer.close();
 
 //        TestObject testObject = gson.fromJson(new FileReader("test.json"), TestObject.class);
 //        System.out.println(testObject);
 
+        CommandManager.init();
         System.out.println("Done");
 
         launch(args);

@@ -1,0 +1,6 @@
+[
+  "add <amout>",
+  "remove <amout>",
+  "build <amount>",
+  "destroy <amount>"
+]
