@@ -8,7 +8,7 @@ import java.io.*;
 
 public class DataManager {
 
-    static Game currentGame;
+    public static Game currentGame;
 
     static void save(String saveName) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
