@@ -14,10 +14,14 @@ public class CommandManager {
 
 
     public static void init() throws IOException {
+        System.out.println("Initializing CommandManager...");
+
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         availableCommands = gson.fromJson(new FileReader("config/commands.json"), String[].class);
-        System.out.println("Available commands are:\n" + Arrays.toString(availableCommands));
+        System.out.println("List of available in-game commands:\n" + Arrays.toString(availableCommands));
+
+        System.out.println("# [CommandManager] done");
     }
 
     public static void processCommand(String command, GameViewController controller) {

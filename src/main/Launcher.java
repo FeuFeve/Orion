@@ -1,37 +1,35 @@
 package main;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Launcher extends Application {
 
-    public static Stage window;
-    public static Scene mainMenuScene, gameScene;
-
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        window = primaryStage;
+    public void start(Stage primaryStage) throws Exception {
+        SceneManager.init(primaryStage);
 
-        mainMenuScene = new Scene(FXMLLoader.load(getClass().getResource("../views/main_menu_view.fxml")));
-        gameScene = new Scene(FXMLLoader.load(getClass().getResource("../views/game_view.fxml")));
+        primaryStage.setOnCloseRequest(t -> {
+            Platform.exit();
+            System.exit(0);
+        });
 
-        window.setTitle("Orion");
-        window.setScene(mainMenuScene);
-        window.setResizable(false);
-        window.show();
+        primaryStage.setTitle("Orion");
+        primaryStage.setResizable(false);
+
+        SceneManager.loadMainMenuScene();
+
+        primaryStage.show();
     }
 
 
     public static void main(String[] args) throws IOException {
-        System.out.print("Initializing CommandManager...");
         CommandManager.init();
-        System.out.println(" Done");
 
-        System.out.println("Starting the game");
+        System.out.println("Starting the game...");
         launch(args);
     }
 }

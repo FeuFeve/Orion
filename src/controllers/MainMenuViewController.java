@@ -1,19 +1,21 @@
 package controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import main.DataManager;
-import main.Launcher;
+import main.SceneManager;
 import models.Game;
+
+import java.io.IOException;
 
 public class MainMenuViewController {
 
-    @FXML private Button newGameButton;
-    @FXML private Button loadButton;
-
-
     public void newGame() {
         DataManager.currentGame = new Game();
-        Launcher.window.setScene(Launcher.gameScene);
+        SceneManager.loadGameScene();
+    }
+
+    public void loadGame() throws IOException {
+        if (DataManager.loadGame()) {
+            SceneManager.loadGameScene();
+        }
     }
 }
