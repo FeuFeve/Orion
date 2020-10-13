@@ -24,16 +24,26 @@ public class DataManager {
         chrono.start();
 
         File selectedFile;
+        boolean endsWithJson;
+        String filePath;
         if (result == JFileChooser.APPROVE_OPTION) {
             selectedFile = fileChooser.getSelectedFile();
-            System.out.println("(" + Date.getRealDate() + ") Saving to saves/" + selectedFile.getName() + ".json...");
+            endsWithJson = selectedFile.getName().endsWith(".json");
+            if (endsWithJson) {
+                filePath = "saves/" + selectedFile.getName();
+            }
+            else {
+                filePath = "saves/" + selectedFile.getName() + ".json";
+            }
+            System.out.print("(" + Date.getRealDate() + ") Saving to " + filePath + "...");
         }
         else return;
 
         currentGame.saveName = selectedFile.getName();
+        currentGame.lastSavedRealDate = Date.getRealDate();
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Writer writer = new FileWriter(new File("saves/" + selectedFile.getName() + ".json"));
+        Writer writer = new FileWriter(new File(filePath));
 
         gson.toJson(currentGame, writer);
 
@@ -41,7 +51,7 @@ public class DataManager {
         writer.close();
 
         chrono.stop();
-        System.out.println("Done in " + chrono.getDurationMsTxt());
+        System.out.println(" Done in " + chrono.getDurationMsTxt());
     }
 
     public static boolean loadGame() throws FileNotFoundException {
@@ -56,7 +66,7 @@ public class DataManager {
         File selectedFile;
         if (result == JFileChooser.APPROVE_OPTION) {
             selectedFile = fileChooser.getSelectedFile();
-            System.out.println("(" + Date.getRealDate() + ") Loading save from " + selectedFile.getName() + "...");
+            System.out.print("(" + Date.getRealDate() + ") Loading save from " + selectedFile.getName() + "...");
         }
         else return false;
 
@@ -66,7 +76,7 @@ public class DataManager {
         currentGame.saveName = selectedFile.getName();
 
         chrono.stop();
-        System.out.println("Done in " + chrono.getDurationMsTxt());
+        System.out.println(" Done in " + chrono.getDurationMsTxt());
         return true;
     }
 }

@@ -30,13 +30,23 @@ public class SceneManager {
 
     public static void loadMainMenuScene() {
         System.out.print("(" + Date.getRealDate() + ") Loading main_menu_view.fxml...");
+        Chronometer chrono = new Chronometer();
+        chrono.start();
+
         window.setScene(mainMenuScene);
-        System.out.println(" Done");
+
+        chrono.stop();
+        System.out.println(" Done in " + chrono.getDurationMsTxt());
     }
 
     public static void loadGameScene() {
         System.out.print("(" + Date.getRealDate() + ") Loading game_view.fxml...");
+        Chronometer chrono = new Chronometer();
+        chrono.start();
+
         window.setScene(gameScene);
-        System.out.println(" Done");
+
+        chrono.stop();
+        System.out.println(" Done in " + chrono.getDurationMsTxt());
     }
 }
