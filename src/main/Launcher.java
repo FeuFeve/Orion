@@ -22,6 +22,7 @@ public class Launcher extends Application {
 
         SceneManager.loadMainMenuScene();
 
+        System.out.println("Starting the game...");
         primaryStage.show();
     }
 
@@ -29,7 +30,6 @@ public class Launcher extends Application {
     public static void main(String[] args) throws IOException {
         CommandManager.init();
 
-        System.out.println("Starting the game...");
         launch(args);
     }
 }
