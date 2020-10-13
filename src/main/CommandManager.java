@@ -3,6 +3,8 @@ package main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import controllers.GameViewController;
+import utilities.Chronometer;
+import utilities.Date;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,14 +16,18 @@ public class CommandManager {
 
 
     public static void init() throws IOException {
-        System.out.println("Initializing CommandManager...");
+        System.out.println("(" + Date.getRealDate() + ") Initializing CommandManager...");
+        Chronometer chrono = new Chronometer();
+        chrono.start();
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         availableCommands = gson.fromJson(new FileReader("config/commands.json"), String[].class);
-        System.out.println("List of available in-game commands:\n" + Arrays.toString(availableCommands));
+        System.out.println("# List of available in-game commands:\n" +
+                "# " + Arrays.toString(availableCommands));
 
-        System.out.println("# [CommandManager] done");
+        chrono.stop();
+        System.out.println("[CommandManager] Done in " + chrono.getDurationMsTxt());
     }
 
     public static void processCommand(String command, GameViewController controller) {

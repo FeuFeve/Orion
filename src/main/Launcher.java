@@ -3,6 +3,7 @@ package main;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import utilities.Date;
 
 import java.io.IOException;
 
@@ -13,6 +14,7 @@ public class Launcher extends Application {
         SceneManager.init(primaryStage);
 
         primaryStage.setOnCloseRequest(t -> {
+            System.out.println("(" + Date.getRealDate() + ") Exiting...");
             Platform.exit();
             System.exit(0);
         });
@@ -22,7 +24,7 @@ public class Launcher extends Application {
 
         SceneManager.loadMainMenuScene();
 
-        System.out.println("Starting the game...");
+        System.out.println("(" + Date.getRealDate() + ") Starting the game...");
         primaryStage.show();
     }
 

@@ -3,6 +3,8 @@ package main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import models.Game;
+import utilities.Chronometer;
+import utilities.Date;
 
 import javax.swing.*;
 import java.io.*;
@@ -18,10 +20,13 @@ public class DataManager {
 
         int result = fileChooser.showSaveDialog(new JFrame());
 
+        Chronometer chrono = new Chronometer();
+        chrono.start();
+
         File selectedFile;
         if (result == JFileChooser.APPROVE_OPTION) {
             selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Saving to saves/" + selectedFile.getName() + ".json...");
+            System.out.println("(" + Date.getRealDate() + ") Saving to saves/" + selectedFile.getName() + ".json...");
         }
         else return;
 
@@ -35,7 +40,8 @@ public class DataManager {
         writer.flush();
         writer.close();
 
-        System.out.println("# done");
+        chrono.stop();
+        System.out.println("Done in " + chrono.getDurationMsTxt());
     }
 
     public static boolean loadGame() throws FileNotFoundException {
@@ -44,10 +50,13 @@ public class DataManager {
 
         int result = fileChooser.showOpenDialog(new JFrame());
 
+        Chronometer chrono = new Chronometer();
+        chrono.start();
+
         File selectedFile;
         if (result == JFileChooser.APPROVE_OPTION) {
             selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Loading save from " + selectedFile.getName() + "...");
+            System.out.println("(" + Date.getRealDate() + ") Loading save from " + selectedFile.getName() + "...");
         }
         else return false;
 
@@ -56,7 +65,8 @@ public class DataManager {
 
         currentGame.saveName = selectedFile.getName();
 
-        System.out.println("# done");
+        chrono.stop();
+        System.out.println("Done in " + chrono.getDurationMsTxt());
         return true;
     }
 }

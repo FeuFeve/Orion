@@ -8,6 +8,8 @@ import main.CommandManager;
 import main.DataManager;
 import main.SceneManager;
 import org.controlsfx.control.textfield.TextFields;
+import utilities.Chronometer;
+import utilities.Date;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,9 +23,14 @@ public class GameViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Initializing GameViewController...");
+        System.out.println("(" + Date.getRealDate() + ") Initializing GameViewController...");
+        Chronometer chronometer = new Chronometer();
+        chronometer.start();
+
         TextFields.bindAutoCompletion(commandTextField, CommandManager.availableCommands);
-        System.out.println("# [GameViewController] done");
+
+        chronometer.stop();
+        System.out.println("[GameViewController] Done in " + chronometer.getDurationMsTxt());
     }
 
     public void sendCommand() {
