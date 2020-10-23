@@ -5,7 +5,6 @@ import javafx.application.Platform;
 public class GameManager {
 
     static boolean isRunning = true;
-    static boolean pause = false;
 
     static final int[] UPDATES_PER_SECOND = {1, 2, 4, 8};
     static int gameUpsSpeed = 0;
@@ -38,8 +37,6 @@ public class GameManager {
         final double TIME_U = (double) 1_000_000_000 / UPDATES_PER_SECOND[gameUpsSpeed];
         double deltaU = 0;
 
-        long timer = System.currentTimeMillis();
-
         while (isRunning && DataManager.currentGame != null) {
 
             long currentTime = System.nanoTime();
@@ -69,10 +66,6 @@ public class GameManager {
                         Thread.sleep(msUntilNextUpdate);
                     } catch (InterruptedException ignored) {}
                 }
-            }
-
-            if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
             }
         }
     }

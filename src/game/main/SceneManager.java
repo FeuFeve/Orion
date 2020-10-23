@@ -44,7 +44,16 @@ public class SceneManager {
 
                 switch (currentKey) {
                     case SPACE:
-                        System.out.println("Space pressed.");
+                        // TODO: remove prints and replace with an in-game visual indicator
+                        System.out.print("(" + Date.getRealDate() + ") Game ");
+                        if (GameManager.isRunning) {
+                            System.out.println("paused");
+                            GameManager.stop();
+                        }
+                        else {
+                            System.out.println("unpaused");
+                            GameManager.start();
+                        }
                         break;
                 }
             }
