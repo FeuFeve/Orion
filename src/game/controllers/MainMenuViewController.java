@@ -4,6 +4,7 @@ import game.main.*;
 import game.models.Game;
 import game.utilities.Chronometer;
 import game.utilities.Date;
+import javafx.application.Platform;
 import javafx.fxml.Initializable;
 
 import java.io.IOException;
@@ -27,13 +28,15 @@ public class MainMenuViewController implements Initializable {
     public void newGame() {
         DataManager.currentGame = new Game();
         SceneManager.loadGameScene();
-        GameManager.start();
+        Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
+        // GameManager.start();
     }
 
     public void loadGame() throws IOException {
         if (DataManager.loadGame()) {
             SceneManager.loadGameScene();
-            GameManager.start();
+            Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
+            // GameManager.start();
         }
     }
 }

@@ -4,10 +4,10 @@ import javafx.application.Platform;
 
 public class GameManager {
 
-    static boolean isRunning = true;
+    public static boolean isRunning = false;
 
     static final int[] UPDATES_PER_SECOND = {1, 2, 4, 8};
-    static int gameUpsSpeed = 0;
+    static int gameUpsSpeed = 2;
 
     static Thread gameThread;
 

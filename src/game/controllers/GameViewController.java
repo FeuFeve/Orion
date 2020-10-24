@@ -66,7 +66,14 @@ public class GameViewController implements Initializable {
     }
 
     public void save() throws IOException {
-        DataManager.saveGame();
+        if (GameManager.isRunning) {
+            GameManager.stop();
+            DataManager.saveGame();
+            GameManager.start();
+        }
+        else {
+            DataManager.saveGame();
+        }
     }
 
     public void backToMainMenu() {
