@@ -2,10 +2,13 @@ package game.controllers;
 
 import game.main.*;
 import game.models.Game;
+import game.models.Images;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import org.controlsfx.control.textfield.TextFields;
 import game.utilities.Chronometer;
@@ -19,6 +22,8 @@ public class GameViewController implements Initializable {
 
     @FXML private TextField commandTextField;
     @FXML private TextArea commandHistory;
+
+    @FXML private ImageView playPauseIcon;
 
     // Tab 1
     @FXML private Text currentSystemTime;
@@ -60,9 +65,11 @@ public class GameViewController implements Initializable {
     }
 
     public void updateView(Game game) {
-        String time = Date.getRealTimeMs();
-        currentSystemTime.setText("Current system time: " + time);
-        currentUpdateIndex.setText("Current update index: " + game.totalTicks);
+        Platform.runLater(() -> {
+            String time = Date.getRealTimeMs();
+            currentSystemTime.setText("Current system time: " + time);
+            currentUpdateIndex.setText("Current update index: " + game.totalTicks);
+        });
     }
 
     public void save() throws IOException {
@@ -80,5 +87,13 @@ public class GameViewController implements Initializable {
         DataManager.currentGame = null;
         GameManager.stop();
         SceneManager.loadMainMenuScene();
+    }
+
+    public void displayPlayUI() {
+        Platform.runLater(() -> playPauseIcon.setImage(Images.playIcon));
+    }
+
+    public void displayPauseUI() {
+        Platform.runLater(() -> playPauseIcon.setImage(Images.pauseIcon));
     }
 }

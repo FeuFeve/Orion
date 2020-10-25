@@ -13,12 +13,16 @@ public class GameManager {
 
 
     public static void start() {
+        ControllersManager.gameViewController.displayPlayUI();
+
         isRunning = true;
         gameThread = new Thread(GameManager::run);
         gameThread.start();
     }
 
     public static void stop() {
+        ControllersManager.gameViewController.displayPauseUI();
+
         isRunning = false;
         try {
             gameThread.join();
@@ -28,9 +32,7 @@ public class GameManager {
     }
 
     private static void run() {
-
-        // Update view on UI thread
-        Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
+        ControllersManager.gameViewController.updateView(DataManager.currentGame);
 
         long initialTime = System.nanoTime();
 
