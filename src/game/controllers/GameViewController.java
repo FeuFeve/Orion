@@ -24,6 +24,7 @@ public class GameViewController implements Initializable {
     @FXML private TextArea commandHistory;
 
     @FXML private ImageView playPauseIcon;
+    @FXML private Text gameSpeed;
 
     // Tab 1
     @FXML private Text currentSystemTime;
@@ -95,5 +96,9 @@ public class GameViewController implements Initializable {
 
     public void displayPauseUI() {
         Platform.runLater(() -> playPauseIcon.setImage(Images.pauseIcon));
+    }
+
+    public void updateGameSpeed(int gameSpeed) {
+        Platform.runLater(() -> this.gameSpeed.setText("X" + gameSpeed));
     }
 }

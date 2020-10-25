@@ -44,16 +44,24 @@ public class SceneManager {
 
                 switch (currentKey) {
                     case SPACE:
-                        // TODO: remove prints and replace with an in-game visual indicator
-                        System.out.print("(" + Date.getRealDate() + ") Game ");
-                        if (GameManager.isRunning) {
-                            System.out.println("paused");
-                            GameManager.stop();
-                        }
-                        else {
-                            System.out.println("unpaused");
-                            GameManager.start();
-                        }
+                        if (GameManager.isRunning) GameManager.stop();
+                        else GameManager.start();
+                        break;
+                    case DIGIT1:
+                        GameManager.updateGameSpeed(0);
+                        ControllersManager.gameViewController.updateGameSpeed(GameManager.UPDATES_PER_SECOND[0]);
+                        break;
+                    case DIGIT2:
+                        GameManager.updateGameSpeed(1);
+                        ControllersManager.gameViewController.updateGameSpeed(GameManager.UPDATES_PER_SECOND[1]);
+                        break;
+                    case DIGIT3:
+                        GameManager.updateGameSpeed(2);
+                        ControllersManager.gameViewController.updateGameSpeed(GameManager.UPDATES_PER_SECOND[2]);
+                        break;
+                    case DIGIT4:
+                        GameManager.updateGameSpeed(3);
+                        ControllersManager.gameViewController.updateGameSpeed(GameManager.UPDATES_PER_SECOND[3]);
                         break;
                 }
             }

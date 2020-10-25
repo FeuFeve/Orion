@@ -1,5 +1,6 @@
 package game.main;
 
+import game.utilities.Date;
 import javafx.application.Platform;
 
 public class GameManager {
@@ -7,7 +8,8 @@ public class GameManager {
     public static boolean isRunning = false;
 
     static final int[] UPDATES_PER_SECOND = {1, 2, 4, 8};
-    static int gameUpsSpeed = 2;
+    static int gameSpeed = 0;
+    static boolean gameSpeedHasChanged = true;
 
     static Thread gameThread;
 
@@ -36,28 +38,36 @@ public class GameManager {
 
         long initialTime = System.nanoTime();
 
-        final double TIME_U = (double) 1_000_000_000 / UPDATES_PER_SECOND[gameUpsSpeed];
+        int gameUpsSpeed = gameSpeed;
+        double timeU = (double) 1_000_000_000 / UPDATES_PER_SECOND[gameUpsSpeed];
         double deltaU = 0;
 
         while (isRunning && DataManager.currentGame != null) {
 
             long currentTime = System.nanoTime();
             long deltaTime = currentTime - initialTime;
-            deltaU += deltaTime / TIME_U;
+            deltaU += deltaTime / timeU;
             initialTime = currentTime;
 
             if (deltaU >= 1) {
+                System.out.println(Date.getRealDateMs() + " deltaU = " + deltaU);
                 // Game update
                 DataManager.currentGame.tick();
+
                 deltaU--;
 
                 // Update view on UI thread
                 Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
 
+                if (gameSpeedHasChanged) {
+                    gameUpsSpeed = gameSpeed;
+                    timeU = (double) 1_000_000_000 / UPDATES_PER_SECOND[gameUpsSpeed];
+                }
+
                 // Calculate remaining time until next update
                 currentTime = System.nanoTime();
                 deltaTime = currentTime - initialTime;
-                deltaU += deltaTime / TIME_U;
+                deltaU += deltaTime / timeU;
                 initialTime = currentTime;
 
                 int msUntilNextUpdate = (1000 / UPDATES_PER_SECOND[gameUpsSpeed]) - ((int) (deltaU * 1000));
@@ -70,5 +80,10 @@ public class GameManager {
                 }
             }
         }
+    }
+
+    public static void updateGameSpeed(int gameSpeed) {
+        GameManager.gameSpeed = gameSpeed;
+        gameSpeedHasChanged = true;
     }
 }
