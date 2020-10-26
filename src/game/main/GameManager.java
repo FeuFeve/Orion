@@ -1,13 +1,12 @@
 package game.main;
 
-import game.utilities.Date;
 import javafx.application.Platform;
 
 public class GameManager {
 
     public static boolean isRunning = false;
 
-    static final int[] UPDATES_PER_SECOND = {1, 2, 4, 8};
+    static final int[] UPDATES_PER_SECOND = {1, 2, 4, 8, 50};
     static int gameSpeed = 0;
     static boolean gameSpeedHasChanged = true;
 
@@ -50,7 +49,6 @@ public class GameManager {
             initialTime = currentTime;
 
             if (deltaU >= 1) {
-                System.out.println(Date.getRealDateMs() + " deltaU = " + deltaU);
                 // Game update
                 DataManager.currentGame.tick();
 

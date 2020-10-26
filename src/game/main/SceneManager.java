@@ -63,6 +63,10 @@ public class SceneManager {
                         GameManager.updateGameSpeed(3);
                         ControllersManager.gameViewController.updateGameSpeed(GameManager.UPDATES_PER_SECOND[3]);
                         break;
+                    case DIGIT5: // TEST GAME SPEED
+                        GameManager.updateGameSpeed(4);
+                        ControllersManager.gameViewController.updateGameSpeed(GameManager.UPDATES_PER_SECOND[4]);
+                        break;
                 }
             }
         });
