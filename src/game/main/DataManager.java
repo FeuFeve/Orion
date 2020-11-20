@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import game.models.Game;
 import game.utilities.Chronometer;
 import game.utilities.Date;
+import game.utilities.FileManager;
 
 import javax.swing.*;
 import java.io.*;
@@ -14,7 +15,7 @@ public class DataManager {
     public static Game currentGame;
 
 
-    public static void saveGame() throws IOException {
+    public static int saveGame() throws IOException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("saves"));
 
@@ -37,24 +38,22 @@ public class DataManager {
             }
             System.out.print("(" + Date.getRealDate() + ") Saving to " + filePath + "...");
         }
-        else return;
+        else return 0;
 
         currentGame.saveName = selectedFile.getName();
         currentGame.lastSavedRealDate = Date.getRealDate();
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Writer writer = new FileWriter(new File(filePath));
-
-        gson.toJson(currentGame, writer);
-
-        writer.flush();
-        writer.close();
+        boolean saved = FileManager.saveToJson(currentGame, filePath);
+        if (!saved) {
+            return -1;
+        }
 
         chrono.stop();
         System.out.println(" Done in " + chrono.getDurationMsTxt());
+        return 1;
     }
 
-    public static boolean loadGame() throws FileNotFoundException {
+    public static int loadGame() throws FileNotFoundException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("saves"));
 
@@ -68,15 +67,17 @@ public class DataManager {
             selectedFile = fileChooser.getSelectedFile();
             System.out.print("(" + Date.getRealDate() + ") Loading save from " + selectedFile.getName() + "...");
         }
-        else return false;
+        else return 0;
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        currentGame = gson.fromJson(new FileReader(selectedFile), Game.class);
+        currentGame = (Game) FileManager.loadFromJson(selectedFile, Game.class);
+        if (currentGame == null) {
+            return -1;
+        }
 
         currentGame.saveName = selectedFile.getName();
 
         chrono.stop();
         System.out.println(" Done in " + chrono.getDurationMsTxt());
-        return true;
+        return 1;
     }
 }

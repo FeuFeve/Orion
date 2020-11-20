@@ -33,7 +33,7 @@ public class MainMenuViewController implements Initializable {
     }
 
     public void loadGame() throws IOException {
-        if (DataManager.loadGame()) {
+        if (DataManager.loadGame() == 1) {
             SceneManager.loadGameScene();
             Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
             // GameManager.start();
