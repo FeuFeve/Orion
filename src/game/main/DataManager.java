@@ -1,7 +1,5 @@
 package game.main;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import game.models.Game;
 import game.utilities.Chronometer;
 import game.utilities.Date;
@@ -15,7 +13,7 @@ public class DataManager {
     public static Game currentGame;
 
 
-    public static int saveGame() throws IOException {
+    public static int saveGame() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("saves"));
 
@@ -53,7 +51,7 @@ public class DataManager {
         return 1;
     }
 
-    public static int loadGame() throws FileNotFoundException {
+    public static int loadGame() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("saves"));
 

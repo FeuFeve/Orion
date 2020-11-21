@@ -2,10 +2,10 @@ package game.utilities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import game.models.Game;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.*;
 
 public class FileManager {
 
@@ -44,5 +44,19 @@ public class FileManager {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static List<?> loadArrayFromJson(String filePath, Type objectType) {
+        Object object = loadFromJson(filePath, objectType);
+        assert object != null;
+
+        List<Object> list = new ArrayList<>();
+        if (object.getClass().isArray()) {
+            list = Arrays.asList((Object[])object);
+        } else if (object instanceof Collection) {
+            list = new ArrayList<>((Collection<?>)object);
+        }
+
+        return list;
     }
 }

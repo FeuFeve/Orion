@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Bread",
+    "type": "Food",
+    "hasMaxAmount": false,
+    "amount": 0,
+    "maxAmount": 0
+  },
+  {
+    "name": "Wood",
+    "type": "Material",
+    "hasMaxAmount": false,
+    "amount": 0,
+    "maxAmount": 0
+  },
+  {
+    "name": "Stone",
+    "type": "Material",
+    "hasMaxAmount": false,
+    "amount": 0,
+    "maxAmount": 0
+  }
+]

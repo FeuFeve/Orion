@@ -12,6 +12,7 @@ public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         SceneManager.init(primaryStage);
+        ResourceLoader.loadResources();
 
         primaryStage.setOnCloseRequest(t -> {
             System.out.println("(" + Date.getRealDate() + ") Exiting...");
