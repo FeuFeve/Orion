@@ -6,7 +6,6 @@ import game.utilities.FileManager;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Resource extends GameObject {
@@ -48,18 +47,18 @@ public class Resource extends GameObject {
     }
 
     @SuppressWarnings("unchecked")
-    public static HashMap<String, Resource> init(String filePath) {
+    public static List<Resource> init(String filePath) {
         System.out.print("(" + Date.getRealDate() + ") Loading resources...");
 
         Type type = new TypeToken<ArrayList<Resource>>(){}.getType();
-        List<Resource> list = (List<Resource>) FileManager.loadArrayFromJson(filePath, type);
-
-        HashMap<String, Resource> resources = new HashMap<>();
-        for (Resource resource : list) {
-            resources.put(resource.name, resource);
-        }
+        List<Resource> resources = (List<Resource>) FileManager.loadArrayFromJson(filePath, type);
 
         System.out.println(" Done.");
         return resources;
+    }
+
+    @Override
+    public String toString() {
+        return type + ": " + amount + "/" + maxAmount;
     }
 }

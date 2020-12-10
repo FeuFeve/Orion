@@ -1,11 +1,11 @@
 package game.main;
 
-import game.models.GameResources;
+import game.models.GameData;
 import game.models.Resource;
 import game.utilities.Chronometer;
 import game.utilities.Date;
 
-public class ResourceLoader {
+public class DataLoader {
 
     private static final String CONFIG_FOLDER_PATH = "config/";
 
@@ -13,16 +13,17 @@ public class ResourceLoader {
     // More to be expected
 
 
-    public static boolean loadResources() {
-        System.out.println("(" + Date.getRealDate() + ") Loading game resources...");
+    public static boolean loadGameData() {
+        System.out.println("(" + Date.getRealDate() + ") Loading game data...");
 
         Chronometer chrono = new Chronometer();
         chrono.start();
 
-        GameResources.resources = Resource.init(RESOURCES_FILE_PATH);
+        GameData.resources = Resource.init(RESOURCES_FILE_PATH);
+        GameData.printGameData();
 
         chrono.stop();
-        System.out.println("[ResourceLoader] Done in " + chrono.getDurationMsTxt());
+        System.out.println("[DataLoader] Done in " + chrono.getDurationMsTxt());
 
         return true;
     }

@@ -1,6 +1,6 @@
 package game.models;
 
-public class GameObject {
+public abstract class GameObject {
 
     public String name;
 }
