@@ -1,0 +1,28 @@
+{
+  "name": "Masonry",
+  "seasonsToConstruct": 4,
+  "maxBuilders": 2,
+  "workers": 4,
+  "housing": 0,
+  "materialsToConstruct": [
+    {
+      "name": "Wood",
+      "amount": 200
+    },
+    {
+      "name": "Stone",
+      "amount": 50
+    }
+  ],
+  "storage": [
+    {
+      "name": "Wood",
+      "amount": 100
+    },
+    {
+      "name": "Stone",
+      "amount": 50
+    }
+  ],
+  "yieldsPerSeason": []
+}

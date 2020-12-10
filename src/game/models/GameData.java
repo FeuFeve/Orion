@@ -6,6 +6,7 @@ public class GameData {
 
     public static List<Resource> resourceList;
     public static List<BuildingStats> buildingStatsList;
+    public static List<Job> jobList;
     // More to be expected...
 
     public static void printGameData() {
@@ -17,6 +18,11 @@ public class GameData {
         System.out.println("Buildings: (" + buildingStatsList.size() + ")");
         for (BuildingStats buildingStats : buildingStatsList) {
             System.out.println("\t" + buildingStats.name);
+        }
+
+        System.out.println("Jobs: (" + jobList.size() + ")");
+        for (Job job : jobList) {
+            System.out.println("\t" + job.name);
         }
     }
 }
