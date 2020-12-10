@@ -9,12 +9,12 @@ public class GameData {
     // More to be expected...
 
     public static void printGameData() {
-        System.out.println("Resources:");
+        System.out.println("Resources: (" + resourceList.size() + ")");
         for (Resource resource : resourceList) {
             System.out.println("\t" + resource.name);
         }
 
-        System.out.println("Buildings:");
+        System.out.println("Buildings: (" + buildingStatsList.size() + ")");
         for (BuildingStats buildingStats : buildingStatsList) {
             System.out.println("\t" + buildingStats.name);
         }

@@ -12,13 +12,11 @@ public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         SceneManager.init(primaryStage);
-        DataLoader.loadGameData();
+        if (!DataLoader.loadGameData()) {
+            exit();
+        }
 
-        primaryStage.setOnCloseRequest(t -> {
-            System.out.println("(" + Date.getRealDate() + ") Exiting...");
-            Platform.exit();
-            System.exit(0);
-        });
+        primaryStage.setOnCloseRequest(t -> exit());
 
         primaryStage.setTitle("Orion");
         primaryStage.setResizable(false);
@@ -27,6 +25,12 @@ public class Launcher extends Application {
 
         System.out.println("(" + Date.getRealDate() + ") Starting the game...");
         primaryStage.show();
+    }
+
+    public void exit() {
+        System.out.println("(" + Date.getRealDate() + ") Exiting...");
+        Platform.exit();
+        System.exit(0);
     }
 
 
