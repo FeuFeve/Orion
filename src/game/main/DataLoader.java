@@ -45,7 +45,8 @@ public class DataLoader {
         System.out.println("(" + Date.getRealDate() + ") Verifying data consistency...");
 
         List<String> configResources = verifyResourcesDuplicates();
-        verifyBuildingsConsistency(configResources);
+        List<String> configBuildings = verifyBuildingsConsistency(configResources);
+        verifyJobsConsistency(configBuildings);
 
         System.out.println("Found " + loadingErrors + " errors.");
     }
@@ -54,7 +55,7 @@ public class DataLoader {
         List<String> configResources = new ArrayList<>();
         for (Resource resource : GameData.resourceList) {
             if (configResources.contains(resource.name)) {
-                System.err.println("\t# ERROR # Duplicate of " + resource.name + " found (Resources)");
+                System.err.println("\t# ERROR # Duplicate resource '" + resource.name + "' found in resources config file");
                 loadingErrors++;
             }
             else {
@@ -64,11 +65,37 @@ public class DataLoader {
         return configResources;
     }
 
-    private static void verifyBuildingsConsistency(List<String> configResources) {
+    private static List<String> verifyBuildingsConsistency(List<String> configResources) {
+        List<String> configBuildings = new ArrayList<>();
         for (BuildingStats buildingStats : GameData.buildingStatsList) {
+            if (configBuildings.contains(buildingStats.name)) {
+                System.err.println("\t# ERROR # Duplicate building (building with the same name '" + buildingStats.name + "') found in buildings config folder");
+                loadingErrors++;
+            }
+            else {
+                configBuildings.add(buildingStats.name);
+            }
             verifyListConsistency(buildingStats.name, "materialsToConstruct", configResources, buildingStats.materialsToConstruct);
             verifyListConsistency(buildingStats.name, "storage", configResources, buildingStats.storage);
             verifyListConsistency(buildingStats.name, "yieldsPerSeason", configResources, buildingStats.yieldsPerSeason);
+        }
+        return configBuildings;
+    }
+
+    private static void verifyJobsConsistency(List<String> configBuildings) {
+        List<String> configJobs = new ArrayList<>();
+        for (Job job : GameData.jobList) {
+            if (configJobs.contains(job.name)) {
+                System.err.println("\t# ERROR # Duplicate job '" + job.name + "' found in jobs config file");
+                loadingErrors++;
+            }
+            else {
+                configJobs.add(job.name);
+            }
+            if (!configBuildings.contains(job.associatedBuilding.name)) {
+                System.err.println("\t# ERROR # Unknown associated building ('" + job.associatedBuilding.name + "') found in '" + job.name + "' job");
+                loadingErrors++;
+            }
         }
     }
 
@@ -76,11 +103,11 @@ public class DataLoader {
         List<String> configBuildingStatsResources = new ArrayList<>();
         for (Resource resource : configBuildingStatsResourcesList) {
             if (!configResources.contains(resource.name)) {
-                System.err.println("\t# ERROR # Unknown resource ('" + resource.name + "') found in " + objectName + " (" + listName + ")");
+                System.err.println("\t# ERROR # Unknown resource ('" + resource.name + "') found in '" + objectName + "' buildings file (in " + listName + ")");
                 loadingErrors++;
             }
             else if (configBuildingStatsResources.contains(resource.name)) {
-                System.err.println("\t# ERROR # Duplicate of " + resource.name + " found in " + objectName + " (" + listName + ")");
+                System.err.println("\t# ERROR # Duplicate of '" + resource.name + "' found in '" + objectName + "' buildings file (in " + listName + ")");
                 loadingErrors++;
             }
             else {
