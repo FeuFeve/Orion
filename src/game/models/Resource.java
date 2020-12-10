@@ -12,7 +12,7 @@ public class Resource extends GameObject {
 
     public String type;
 
-    public boolean hasMaxAmount;
+    public boolean hasMaxAmount = true;
     public int amount;
     public int maxAmount;
 

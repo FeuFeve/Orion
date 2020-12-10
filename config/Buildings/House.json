@@ -1,33 +1,32 @@
 {
+  "name": "House",
   "seasonsToConstruct": 2,
   "maxBuilders": 4,
-  "materialsToConstruct": [
-    {
-      "type": "Material",
-      "hasMaxAmount": false,
-      "amount": 0,
-      "maxAmount": 0,
-      "name": "Wood"
-    },
-    {
-      "type": "Material",
-      "hasMaxAmount": false,
-      "amount": 0,
-      "maxAmount": 0,
-      "name": "Stone"
-    }
-  ],
   "workers": 0,
   "housing": 6,
-  "storage": [
+  "materialsToConstruct": [
     {
-      "type": "Food",
-      "hasMaxAmount": false,
-      "amount": 0,
-      "maxAmount": 0,
-      "name": "Bread"
+      "name": "Wood",
+      "amount": 100
+    },
+    {
+      "name": "Stone",
+      "amount": 20
     }
   ],
-  "yield": [],
-  "name": "House"
+  "storage": [
+    {
+      "name": "Vegetables",
+      "amount": 20
+    },
+    {
+      "name": "Fruits",
+      "amount": 30
+    },
+    {
+      "name": "Meat",
+      "amount": 50
+    }
+  ],
+  "yieldsPerSeason": []
 }

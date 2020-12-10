@@ -20,7 +20,7 @@ public class BuildingStats extends GameObject {
     public List<Resource> storage = new ArrayList<>();
 
     // Yields
-    public List<Resource> yield = new ArrayList<>();
+    public List<Resource> yieldsPerSeason = new ArrayList<>();
 
 
     public static List<BuildingStats> init(String folderPath) {

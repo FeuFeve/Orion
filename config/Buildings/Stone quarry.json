@@ -1,23 +1,24 @@
 {
-  "name": "Farm",
-  "seasonsToConstruct": 2,
+  "name": "Stone quarry",
+  "seasonsToConstruct": 8,
   "maxBuilders": 2,
-  "workers": 2,
+  "workers": 6,
   "housing": 0,
   "materialsToConstruct": [
     {
       "name": "Wood",
-      "amount": 20
-    },
-    {
-      "name": "Stone",
-      "amount": 5
+      "amount": 200
     }
   ],
-  "storage": [],
+  "storage": [
+    {
+      "name": "Stone",
+      "amount": 200
+    }
+  ],
   "yieldsPerSeason": [
     {
-      "name": "Vegetables",
+      "name": "Wood",
       "amount": 20
     }
   ]
