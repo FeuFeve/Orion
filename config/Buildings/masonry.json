@@ -17,7 +17,7 @@
     "jobs" : [
       {
         "name": "Builder",
-        "total": 4
+        "amount": 4
       }
     ],
     "storage": [

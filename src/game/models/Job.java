@@ -8,10 +8,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Job extends GameObject {
+public class Job extends Quantifiable {
 
     public int occupied;
-    public int total;
 
 
     @SuppressWarnings("unchecked")

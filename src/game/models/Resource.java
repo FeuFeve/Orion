@@ -8,13 +8,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Resource extends GameObject {
+public class Resource extends Quantifiable {
 
     public String type;
-
-    public boolean hasMaxAmount = true;
-    public int amount;
-    public int maxAmount;
 
 
     public Resource(String name, String type) {

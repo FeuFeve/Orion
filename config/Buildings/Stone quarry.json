@@ -13,7 +13,7 @@
     "jobs" : [
       {
         "name": "Stonecutter",
-        "total": 6
+        "amount": 6
       }
     ],
     "storage": [

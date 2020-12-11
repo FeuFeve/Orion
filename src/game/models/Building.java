@@ -1,9 +1,7 @@
 package game.models;
 
-public class Building extends GameObject {
+public class Building extends Quantifiable {
 
     public BuildingConfig buildingConfig = new BuildingConfig();
-
-    public int count;
     public BuildingStats buildingStats = new BuildingStats();
 }

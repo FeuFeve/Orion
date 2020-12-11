@@ -1,0 +1,35 @@
+{
+  "startingVillagers": 5,
+  "startingResources": [
+    {
+      "key": "Vegetables",
+      "value": 100
+    },
+    {
+      "key": "Fruits",
+      "value": 50
+    },
+    {
+      "key": "Meat",
+      "value": 100
+    }
+  ],
+  "startingBuildings": [
+    {
+      "key": "House",
+      "value": 2
+    },
+    {
+      "key": "Farm",
+      "value": 2
+    },
+    {
+      "key": "Masonry",
+      "value": 1
+    },
+    {
+      "key": "Woodcutter",
+      "value": 1
+    }
+  ]
+}
