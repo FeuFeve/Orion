@@ -2,6 +2,9 @@ package game.models;
 
 import game.utilities.Date;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
     public String saveName;
@@ -10,6 +13,10 @@ public class Game {
     public String lastSavedRealDate;
 
     public long totalTicks;
+
+    // Game related
+    public List<Person> villagers = new ArrayList<>();
+    public List<Building> buildings = new ArrayList<>();
 
 
     public Game() {

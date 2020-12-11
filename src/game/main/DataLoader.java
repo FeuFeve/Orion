@@ -12,8 +12,9 @@ public class DataLoader {
     private static final String CONFIG_FOLDER_PATH = "config/";
 
     private static final String RESOURCES_FILE_PATH = CONFIG_FOLDER_PATH + "resources.json";
-    private static final String BUILDINGS_FOLDER_PATH = CONFIG_FOLDER_PATH + "Buildings/";
     private static final String JOBS_FILE_PATH = CONFIG_FOLDER_PATH + "jobs.json";
+    private static final String BUILDINGS_FOLDER_PATH = CONFIG_FOLDER_PATH + "Buildings/";
+    private static final String GAME_CONFIG_FILE_PATH = CONFIG_FOLDER_PATH + "game config.json";
     // More to be expected
 
     private static int loadingErrors;
@@ -26,9 +27,10 @@ public class DataLoader {
         chrono.start();
 
         GameData.resourceList = Resource.init(RESOURCES_FILE_PATH);
-        GameData.configBuildingParamsList = ConfigBuildingParams.init(BUILDINGS_FOLDER_PATH);
         GameData.jobList = Job.init(JOBS_FILE_PATH);
+        GameData.buildingConfigList = BuildingConfig.init(BUILDINGS_FOLDER_PATH);
         GameData.printGameData();
+        GameData.gameConfig = GameConfig.init(GAME_CONFIG_FILE_PATH);
         verifyDataConsistency();
 
         chrono.stop();
@@ -79,18 +81,18 @@ public class DataLoader {
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static void verifyBuildingsConsistency(List<String> configResources, List<String> configJobs) {
         List<String> configBuildings = new ArrayList<>();
-        for (ConfigBuildingParams configBuildingParams : GameData.configBuildingParamsList) {
-            if (configBuildings.contains(configBuildingParams.name)) {
-                System.err.println("\t# ERROR # Duplicate building (building with the same name '" + configBuildingParams.name + "') found in buildings config folder");
+        for (BuildingConfig buildingConfig : GameData.buildingConfigList) {
+            if (configBuildings.contains(buildingConfig.name)) {
+                System.err.println("\t# ERROR # Duplicate building (building with the same name '" + buildingConfig.name + "') found in buildings config folder");
                 loadingErrors++;
             }
             else {
-                configBuildings.add(configBuildingParams.name);
+                configBuildings.add(buildingConfig.name);
             }
-            verifyListConsistency("resource", configBuildingParams.name, "materialsToConstruct", configResources, (List) configBuildingParams.materialsToConstruct);
-            verifyListConsistency("resource", configBuildingParams.name, "storage", configResources, (List) configBuildingParams.buildingStats.storage);
-            verifyListConsistency("resource", configBuildingParams.name, "yieldsPerSeason", configResources, (List) configBuildingParams.buildingStats.yieldsPerSeason);
-            verifyListConsistency("job", configBuildingParams.name, "jobs", configJobs, (List) configBuildingParams.buildingStats.jobs);
+            verifyListConsistency("resource", buildingConfig.name, "materialsToConstruct", configResources, (List) buildingConfig.materialsToConstruct);
+            verifyListConsistency("resource", buildingConfig.name, "storage", configResources, (List) buildingConfig.buildingStats.storage);
+            verifyListConsistency("resource", buildingConfig.name, "yieldsPerSeason", configResources, (List) buildingConfig.buildingStats.yieldsPerSeason);
+            verifyListConsistency("job", buildingConfig.name, "jobs", configJobs, (List) buildingConfig.buildingStats.jobs);
         }
     }
 

@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConfigBuildingParams extends GameObject {
+public class BuildingConfig extends GameObject {
 
     // Construction params
     public int seasonsToConstruct;
@@ -18,19 +18,19 @@ public class ConfigBuildingParams extends GameObject {
     public BuildingStats buildingStats = new BuildingStats();
 
 
-    public static List<ConfigBuildingParams> init(String folderPath) {
+    public static List<BuildingConfig> init(String folderPath) {
         System.out.print("(" + Date.getRealDate() + ") Loading buildings stats...");
 
-        List<ConfigBuildingParams> configBuildingParamsList = new ArrayList<>();
+        List<BuildingConfig> buildingConfigList = new ArrayList<>();
 
         File file = new File(folderPath);
         String[] pathNames = file.list();
         assert pathNames != null;
         for (String pathName : pathNames) {
-            configBuildingParamsList.add((ConfigBuildingParams) FileManager.loadFromJson(folderPath + pathName, ConfigBuildingParams.class));
+            buildingConfigList.add((BuildingConfig) FileManager.loadFromJson(folderPath + pathName, BuildingConfig.class));
         }
 
         System.out.println(" Done.");
-        return configBuildingParamsList;
+        return buildingConfigList;
     }
 }
