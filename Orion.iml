@@ -10,5 +10,14 @@
     <orderEntry type="library" name="JavaFX 11.0.2" level="project" />
     <orderEntry type="library" name="Google Gson 2.8.6" level="project" />
     <orderEntry type="library" name="ControlsFX 11.0.2" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/annotations-19.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
