@@ -2,8 +2,13 @@
   "name": "Masonry",
   "seasonsToConstruct": 4,
   "maxBuilders": 2,
-  "workers": 4,
   "housing": 0,
+  "jobs" : [
+    {
+      "name": "Builder",
+      "total": 4
+    }
+  ],
   "materialsToConstruct": [
     {
       "name": "Wood",

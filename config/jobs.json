@@ -1,26 +1,14 @@
 [
   {
-    "name": "Farmer",
-    "associatedBuilding": {
-      "name": "Farm"
-    }
+    "name": "Farmer"
   },
   {
-    "name": "Lumberjack",
-    "associatedBuilding": {
-      "name": "Woodcutter"
-    }
+    "name": "Lumberjack"
   },
   {
-    "name": "Builder",
-    "associatedBuilding": {
-      "name": "Masonry"
-    }
+    "name": "Builder"
   },
   {
-    "name": "Stonecutter",
-    "associatedBuilding": {
-      "name": "Stone quarry"
-    }
+    "name": "Stonecutter"
   }
 ]

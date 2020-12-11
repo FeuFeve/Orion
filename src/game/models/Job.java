@@ -10,7 +10,8 @@ import java.util.List;
 
 public class Job extends GameObject {
 
-    public Building associatedBuilding;
+    public int occupied;
+    public int total;
 
 
     @SuppressWarnings("unchecked")

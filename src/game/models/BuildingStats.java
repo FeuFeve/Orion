@@ -15,8 +15,8 @@ public class BuildingStats extends GameObject {
     public List<Resource> materialsToConstruct = new ArrayList<>();
 
     // Base stats
-    public int workers;
     public int housing;
+    public List<Job> jobs = new ArrayList<>();
     public List<Resource> storage = new ArrayList<>();
 
     // Yields
