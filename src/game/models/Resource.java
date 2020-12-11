@@ -11,6 +11,7 @@ import java.util.List;
 public class Resource extends Quantifiable {
 
     public String type;
+    public int maxAmount;
 
 
     public Resource(String name, String type) {
@@ -18,9 +19,13 @@ public class Resource extends Quantifiable {
         this.type = type;
     }
 
+    public Resource(Resource resource) {
+        this(resource.name, resource.type);
+    }
+
     public int add(int amount) {
         this.amount += amount;
-        if (hasMaxAmount) {
+        if (maxAmount != 0) {
             if (this.amount > maxAmount) {
                 int overAmount = this.amount - maxAmount;
                 this.amount = maxAmount;
@@ -56,5 +61,13 @@ public class Resource extends Quantifiable {
     @Override
     public String toString() {
         return type + ": " + amount + "/" + maxAmount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Resource resource = (Resource) o;
+        return name.equals(resource.name) && type.equals(resource.type);
     }
 }

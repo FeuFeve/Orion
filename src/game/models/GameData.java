@@ -26,4 +26,22 @@ public class GameData {
             System.out.println("\t" + job.name);
         }
     }
+
+    public static BuildingConfig getBuildingConfig(String name) {
+        for (BuildingConfig buildingConfig : buildingConfigList) {
+            if (buildingConfig.name.equals(name)) {
+                return buildingConfig;
+            }
+        }
+        return null;
+    }
+
+    public static Resource getResource(String name) {
+        for (Resource resource : resourceList) {
+            if (resource.name.equals(name)) {
+                return new Resource(resource.name, resource.type);
+            }
+        }
+        return null;
+    }
 }

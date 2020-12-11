@@ -1,7 +1,6 @@
 package game.controllers;
 
 import game.main.*;
-import game.models.Game;
 import game.utilities.Chronometer;
 import game.utilities.Date;
 import javafx.application.Platform;
@@ -26,17 +25,15 @@ public class MainMenuViewController implements Initializable {
     }
 
     public void newGame() {
-        DataManager.currentGame = new Game();
+        DataManager.createNewGame();
         SceneManager.loadGameScene();
         Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
-        // GameManager.start();
     }
 
     public void loadGame() throws IOException {
         if (DataManager.loadGame() == 1) {
             SceneManager.loadGameScene();
             Platform.runLater(() -> ControllersManager.gameViewController.updateView(DataManager.currentGame));
-            // GameManager.start();
         }
     }
 }

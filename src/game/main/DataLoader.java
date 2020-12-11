@@ -41,7 +41,6 @@ public class DataLoader {
         return loadingErrors == 0;
     }
 
-    // TODO: add a method to check that no game resources are missing (and list missing resources if there is)
     private static void verifyDataConsistency() {
         System.out.println("(" + Date.getRealDate() + ") Verifying data consistency...");
 

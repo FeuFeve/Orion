@@ -1,0 +1,307 @@
+{
+  "saveName": "real save 1",
+  "startRealDate": "2020-12-11 20:43:41",
+  "lastSavedRealDate": "2020-12-11 20:43:59",
+  "totalTicks": 0,
+  "villagers": [
+    {},
+    {},
+    {},
+    {},
+    {}
+  ],
+  "buildings": [
+    {
+      "buildingConfig": {
+        "seasonsToConstruct": 2,
+        "maxBuilders": 4,
+        "materialsToConstruct": [
+          {
+            "maxAmount": 0,
+            "amount": 100,
+            "name": "Wood"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 20,
+            "name": "Stone"
+          }
+        ],
+        "buildingStats": {
+          "housing": 6,
+          "jobs": [],
+          "storage": [
+            {
+              "maxAmount": 0,
+              "amount": 40,
+              "name": "Vegetables"
+            },
+            {
+              "maxAmount": 0,
+              "amount": 60,
+              "name": "Fruits"
+            },
+            {
+              "maxAmount": 0,
+              "amount": 100,
+              "name": "Meat"
+            }
+          ],
+          "yieldsPerSeason": []
+        },
+        "name": "House"
+      },
+      "buildingStats": {
+        "housing": 12,
+        "jobs": [],
+        "storage": [
+          {
+            "maxAmount": 0,
+            "amount": 40,
+            "name": "Vegetables"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 60,
+            "name": "Fruits"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 100,
+            "name": "Meat"
+          }
+        ],
+        "yieldsPerSeason": []
+      },
+      "amount": 2,
+      "name": "House"
+    },
+    {
+      "buildingConfig": {
+        "seasonsToConstruct": 2,
+        "maxBuilders": 2,
+        "materialsToConstruct": [
+          {
+            "maxAmount": 0,
+            "amount": 20,
+            "name": "Wood"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 5,
+            "name": "Stone"
+          }
+        ],
+        "buildingStats": {
+          "housing": 0,
+          "jobs": [
+            {
+              "occupied": 0,
+              "amount": 4,
+              "name": "Farmer"
+            }
+          ],
+          "storage": [],
+          "yieldsPerSeason": [
+            {
+              "maxAmount": 0,
+              "amount": 40,
+              "name": "Vegetables"
+            }
+          ]
+        },
+        "name": "Farm"
+      },
+      "buildingStats": {
+        "housing": 0,
+        "jobs": [
+          {
+            "occupied": 0,
+            "amount": 4,
+            "name": "Farmer"
+          }
+        ],
+        "storage": [],
+        "yieldsPerSeason": [
+          {
+            "maxAmount": 0,
+            "amount": 40,
+            "name": "Vegetables"
+          }
+        ]
+      },
+      "amount": 2,
+      "name": "Farm"
+    },
+    {
+      "buildingConfig": {
+        "seasonsToConstruct": 4,
+        "maxBuilders": 2,
+        "materialsToConstruct": [
+          {
+            "maxAmount": 0,
+            "amount": 200,
+            "name": "Wood"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 50,
+            "name": "Stone"
+          }
+        ],
+        "buildingStats": {
+          "housing": 0,
+          "jobs": [
+            {
+              "occupied": 0,
+              "amount": 4,
+              "name": "Builder"
+            }
+          ],
+          "storage": [
+            {
+              "maxAmount": 0,
+              "amount": 100,
+              "name": "Wood"
+            },
+            {
+              "maxAmount": 0,
+              "amount": 50,
+              "name": "Stone"
+            }
+          ],
+          "yieldsPerSeason": []
+        },
+        "name": "Masonry"
+      },
+      "buildingStats": {
+        "housing": 0,
+        "jobs": [
+          {
+            "occupied": 0,
+            "amount": 4,
+            "name": "Builder"
+          }
+        ],
+        "storage": [
+          {
+            "maxAmount": 0,
+            "amount": 100,
+            "name": "Wood"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 50,
+            "name": "Stone"
+          }
+        ],
+        "yieldsPerSeason": []
+      },
+      "amount": 1,
+      "name": "Masonry"
+    },
+    {
+      "buildingConfig": {
+        "seasonsToConstruct": 2,
+        "maxBuilders": 4,
+        "materialsToConstruct": [
+          {
+            "maxAmount": 0,
+            "amount": 120,
+            "name": "Wood"
+          },
+          {
+            "maxAmount": 0,
+            "amount": 30,
+            "name": "Stone"
+          }
+        ],
+        "buildingStats": {
+          "housing": 0,
+          "jobs": [
+            {
+              "occupied": 0,
+              "amount": 2,
+              "name": "Lumberjack"
+            }
+          ],
+          "storage": [],
+          "yieldsPerSeason": [
+            {
+              "maxAmount": 0,
+              "amount": 10,
+              "name": "Wood"
+            }
+          ]
+        },
+        "name": "Woodcutter"
+      },
+      "buildingStats": {
+        "housing": 0,
+        "jobs": [
+          {
+            "occupied": 0,
+            "amount": 2,
+            "name": "Lumberjack"
+          }
+        ],
+        "storage": [],
+        "yieldsPerSeason": [
+          {
+            "maxAmount": 0,
+            "amount": 10,
+            "name": "Wood"
+          }
+        ]
+      },
+      "amount": 1,
+      "name": "Woodcutter"
+    }
+  ],
+  "jobs": [],
+  "storage": [
+    {
+      "maxAmount": 40,
+      "amount": 0,
+      "name": "Vegetables"
+    },
+    {
+      "maxAmount": 60,
+      "amount": 0,
+      "name": "Fruits"
+    },
+    {
+      "maxAmount": 100,
+      "amount": 0,
+      "name": "Meat"
+    },
+    {
+      "maxAmount": 100,
+      "amount": 0,
+      "name": "Wood"
+    },
+    {
+      "maxAmount": 50,
+      "amount": 0,
+      "name": "Stone"
+    },
+    {
+      "type": "Food",
+      "maxAmount": 0,
+      "amount": 0,
+      "name": "Vegetables"
+    },
+    {
+      "type": "Food",
+      "maxAmount": 0,
+      "amount": 0,
+      "name": "Fruits"
+    },
+    {
+      "type": "Food",
+      "maxAmount": 0,
+      "amount": 0,
+      "name": "Meat"
+    }
+  ]
+}

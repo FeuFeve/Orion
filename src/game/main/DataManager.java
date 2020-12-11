@@ -13,6 +13,10 @@ public class DataManager {
     public static Game currentGame;
 
 
+    public static void createNewGame() {
+        currentGame = new Game().loadFromConfig();
+    }
+
     public static int saveGame() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("saves"));

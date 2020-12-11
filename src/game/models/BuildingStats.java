@@ -12,4 +12,26 @@ public class BuildingStats {
 
     // Yields
     public List<Resource> yieldsPerSeason = new ArrayList<>();
+
+
+    public BuildingStats() {}
+
+    public BuildingStats(int amount, BuildingConfig buildingConfig) {
+        housing = buildingConfig.buildingStats.housing * amount;
+
+        jobs = new ArrayList<>(buildingConfig.buildingStats.jobs);
+        for (Job job : jobs) {
+            job.amount *= amount;
+        }
+
+        storage = new ArrayList<>(buildingConfig.buildingStats.storage);
+        for (Resource resource : storage) {
+            resource.amount *= amount;
+        }
+
+        yieldsPerSeason = new ArrayList<>(buildingConfig.buildingStats.yieldsPerSeason);
+        for (Resource resource : yieldsPerSeason) {
+            resource.amount *= amount;
+        }
+    }
 }
