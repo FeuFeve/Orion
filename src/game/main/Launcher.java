@@ -1,16 +1,19 @@
 package game.main;
 
+import game.utilities.Chronometer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import game.utilities.Date;
 
-import java.io.IOException;
-
 public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Chronometer chrono = new Chronometer();
+        chrono.start();
+
+        CommandManager.init();
         SceneManager.init(primaryStage);
         if (!DataLoader.loadGameData()) {
             exit();
@@ -25,6 +28,9 @@ public class Launcher extends Application {
 
         System.out.println("(" + Date.getRealDate() + ") Starting the game...");
         primaryStage.show();
+
+        chrono.stop();
+        System.out.println("Total loading time: " + chrono.getDurationMsTxt());
     }
 
     public void exit() {
@@ -34,9 +40,7 @@ public class Launcher extends Application {
     }
 
 
-    public static void main(String[] args) throws IOException {
-        CommandManager.init();
-
+    public static void main(String[] args) {
         launch(args);
     }
 }

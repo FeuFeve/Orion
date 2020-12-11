@@ -2,24 +2,31 @@
   "name": "Stone quarry",
   "seasonsToConstruct": 8,
   "maxBuilders": 2,
-  "workers": 6,
-  "housing": 0,
   "materialsToConstruct": [
     {
       "name": "Wood",
       "amount": 200
     }
   ],
-  "storage": [
-    {
-      "name": "Stone",
-      "amount": 200
-    }
-  ],
-  "yieldsPerSeason": [
-    {
-      "name": "Wood",
-      "amount": 20
-    }
-  ]
+  "buildingStats": {
+    "housing": 0,
+    "jobs" : [
+      {
+        "name": "Stonecutter",
+        "total": 6
+      }
+    ],
+    "storage": [
+      {
+        "name": "Stone",
+        "amount": 200
+      }
+    ],
+    "yieldsPerSeason": [
+      {
+        "name": "Wood",
+        "amount": 20
+      }
+    ]
+  }
 }

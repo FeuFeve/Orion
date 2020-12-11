@@ -5,7 +5,7 @@ import java.util.List;
 public class GameData {
 
     public static List<Resource> resourceList;
-    public static List<BuildingStats> buildingStatsList;
+    public static List<ConfigBuildingParams> configBuildingParamsList;
     public static List<Job> jobList;
     // More to be expected...
 
@@ -15,9 +15,9 @@ public class GameData {
             System.out.println("\t" + resource.name);
         }
 
-        System.out.println("Buildings: (" + buildingStatsList.size() + ")");
-        for (BuildingStats buildingStats : buildingStatsList) {
-            System.out.println("\t" + buildingStats.name);
+        System.out.println("Buildings: (" + configBuildingParamsList.size() + ")");
+        for (ConfigBuildingParams configBuildingParams : configBuildingParamsList) {
+            System.out.println("\t" + configBuildingParams.name);
         }
 
         System.out.println("Jobs: (" + jobList.size() + ")");

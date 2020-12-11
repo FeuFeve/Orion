@@ -2,10 +2,8 @@ package game.models;
 
 public class Building extends GameObject {
 
+    public ConfigBuildingParams configBuildingParams = new ConfigBuildingParams();
+
     public int count;
-
-    BuildingStats buildingStats;
-
-    // Total stats
-
+    public BuildingStats buildingStats = new BuildingStats();
 }

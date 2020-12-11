@@ -26,7 +26,7 @@ public class DataLoader {
         chrono.start();
 
         GameData.resourceList = Resource.init(RESOURCES_FILE_PATH);
-        GameData.buildingStatsList = BuildingStats.init(BUILDINGS_FOLDER_PATH);
+        GameData.configBuildingParamsList = ConfigBuildingParams.init(BUILDINGS_FOLDER_PATH);
         GameData.jobList = Job.init(JOBS_FILE_PATH);
         GameData.printGameData();
         verifyDataConsistency();
@@ -79,18 +79,18 @@ public class DataLoader {
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static void verifyBuildingsConsistency(List<String> configResources, List<String> configJobs) {
         List<String> configBuildings = new ArrayList<>();
-        for (BuildingStats buildingStats : GameData.buildingStatsList) {
-            if (configBuildings.contains(buildingStats.name)) {
-                System.err.println("\t# ERROR # Duplicate building (building with the same name '" + buildingStats.name + "') found in buildings config folder");
+        for (ConfigBuildingParams configBuildingParams : GameData.configBuildingParamsList) {
+            if (configBuildings.contains(configBuildingParams.name)) {
+                System.err.println("\t# ERROR # Duplicate building (building with the same name '" + configBuildingParams.name + "') found in buildings config folder");
                 loadingErrors++;
             }
             else {
-                configBuildings.add(buildingStats.name);
+                configBuildings.add(configBuildingParams.name);
             }
-            verifyListConsistency("resource", buildingStats.name, "materialsToConstruct", configResources, (List) buildingStats.materialsToConstruct);
-            verifyListConsistency("resource", buildingStats.name, "storage", configResources, (List) buildingStats.storage);
-            verifyListConsistency("resource", buildingStats.name, "yieldsPerSeason", configResources, (List) buildingStats.yieldsPerSeason);
-            verifyListConsistency("job", buildingStats.name, "jobs", configJobs, (List) buildingStats.jobs);
+            verifyListConsistency("resource", configBuildingParams.name, "materialsToConstruct", configResources, (List) configBuildingParams.materialsToConstruct);
+            verifyListConsistency("resource", configBuildingParams.name, "storage", configResources, (List) configBuildingParams.buildingStats.storage);
+            verifyListConsistency("resource", configBuildingParams.name, "yieldsPerSeason", configResources, (List) configBuildingParams.buildingStats.yieldsPerSeason);
+            verifyListConsistency("job", configBuildingParams.name, "jobs", configJobs, (List) configBuildingParams.buildingStats.jobs);
         }
     }
 

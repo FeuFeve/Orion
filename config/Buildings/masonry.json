@@ -2,13 +2,6 @@
   "name": "Masonry",
   "seasonsToConstruct": 4,
   "maxBuilders": 2,
-  "housing": 0,
-  "jobs" : [
-    {
-      "name": "Builder",
-      "total": 4
-    }
-  ],
   "materialsToConstruct": [
     {
       "name": "Wood",
@@ -19,15 +12,24 @@
       "amount": 50
     }
   ],
-  "storage": [
-    {
-      "name": "Wood",
-      "amount": 100
-    },
-    {
-      "name": "Stone",
-      "amount": 50
-    }
-  ],
-  "yieldsPerSeason": []
+  "buildingStats": {
+    "housing": 0,
+    "jobs" : [
+      {
+        "name": "Builder",
+        "total": 4
+      }
+    ],
+    "storage": [
+      {
+        "name": "Wood",
+        "amount": 100
+      },
+      {
+        "name": "Stone",
+        "amount": 50
+      }
+    ],
+    "yieldsPerSeason": []
+  }
 }

@@ -2,8 +2,6 @@
   "name": "Farm",
   "seasonsToConstruct": 2,
   "maxBuilders": 2,
-  "workers": 2,
-  "housing": 0,
   "materialsToConstruct": [
     {
       "name": "Wood",
@@ -14,11 +12,20 @@
       "amount": 5
     }
   ],
-  "storage": [],
-  "yieldsPerSeason": [
-    {
-      "name": "Vegetables",
-      "amount": 20
-    }
-  ]
+  "buildingStats": {
+    "housing": 0,
+    "jobs" : [
+      {
+        "name": "Farmer",
+        "total": 2
+      }
+    ],
+    "storage": [],
+    "yieldsPerSeason": [
+      {
+        "name": "Vegetables",
+        "amount": 20
+      }
+    ]
+  }
 }
