@@ -1,23 +1,33 @@
 package game.main;
 
+import com.google.gson.reflect.TypeToken;
 import game.models.*;
 import game.utilities.Chronometer;
 import game.utilities.Date;
+import game.utilities.FileManager;
 import javafx.util.Pair;
 import org.jetbrains.annotations.Nullable;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataLoader {
 
+    // Folders
     private static final String CONFIG_FOLDER_PATH = "config/";
+    private static final String BUILDINGS_FOLDER_PATH = CONFIG_FOLDER_PATH + "Buildings/";
+    private static final String NAMES_FOLDER_PATH = CONFIG_FOLDER_PATH + "Names/";
 
+    // Name files
+    private static final String MALE_NAMES_FILE_PATH = NAMES_FOLDER_PATH + "male first names.json";
+    private static final String FEMALE_NAMES_FILE_PATH = NAMES_FOLDER_PATH + "female first names.json";
+    private static final String LAST_NAMES_FILE_PATH = NAMES_FOLDER_PATH + "last names.json";
+
+    // Config files
     private static final String RESOURCES_FILE_PATH = CONFIG_FOLDER_PATH + "resources.json";
     private static final String JOBS_FILE_PATH = CONFIG_FOLDER_PATH + "jobs.json";
-    private static final String BUILDINGS_FOLDER_PATH = CONFIG_FOLDER_PATH + "Buildings/";
     private static final String GAME_CONFIG_FILE_PATH = CONFIG_FOLDER_PATH + "game config.json";
-    // More to be expected
 
     private static int loadingErrors;
 
@@ -28,10 +38,12 @@ public class DataLoader {
         Chronometer chrono = new Chronometer();
         chrono.start();
 
+        loadNames();
+
         GameData.resourceList = Resource.init(RESOURCES_FILE_PATH);
         GameData.jobList = Job.init(JOBS_FILE_PATH);
         GameData.buildingConfigList = BuildingConfig.init(BUILDINGS_FOLDER_PATH);
-        GameData.printGameData();
+        // GameData.printGameData();
         GameData.gameConfig = GameConfig.init(GAME_CONFIG_FILE_PATH);
         verifyDataConsistency();
 
@@ -39,6 +51,18 @@ public class DataLoader {
         System.out.println("[DataLoader] Done in " + chrono.getDurationMsTxt());
 
         return loadingErrors == 0;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void loadNames() {
+        System.out.print("(" + Date.getRealDate() + ") Loading names...");
+
+        Type type = new TypeToken<ArrayList<String>>(){}.getType();
+        GameData.maleFirstNames = (List<String>) FileManager.loadArrayFromJson(MALE_NAMES_FILE_PATH, type);
+        GameData.femaleFirstNames = (List<String>) FileManager.loadArrayFromJson(FEMALE_NAMES_FILE_PATH, type);
+        GameData.lastNames = (List<String>) FileManager.loadArrayFromJson(LAST_NAMES_FILE_PATH, type);
+
+        System.out.println(" Done.");
     }
 
     private static void verifyDataConsistency() {

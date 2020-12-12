@@ -28,7 +28,7 @@ public class Game {
 
     public Game loadFromConfig() {
         for (int i = 0; i < GameData.gameConfig.startingVillagers; i++) {
-            villagers.add(new Person());
+            villagers.add(new Person().build());
         }
         for (Pair<String, Integer> pair : GameData.gameConfig.startingBuildings) {
             // Add buildings from game starting config

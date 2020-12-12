@@ -1,14 +1,21 @@
 package game.models;
 
 import java.util.List;
+import java.util.Random;
 
 public class GameData {
 
+    // Names
+    public static List<String> maleFirstNames;
+    public static List<String> femaleFirstNames;
+    public static List<String> lastNames;
+
+    // Configs
     public static List<Resource> resourceList;
     public static List<BuildingConfig> buildingConfigList;
     public static List<Job> jobList;
+
     public static GameConfig gameConfig;
-    // More to be expected...
 
     public static void printGameData() {
         System.out.println("Resources: (" + resourceList.size() + ")");
@@ -24,6 +31,16 @@ public class GameData {
         System.out.println("Jobs: (" + jobList.size() + ")");
         for (Job job : jobList) {
             System.out.println("\t" + job.name);
+        }
+    }
+
+    public static String getRandomName(String type) {
+        Random random = new Random();
+        switch (type) {
+            case "Male": return maleFirstNames.get(random.nextInt(maleFirstNames.size()));
+            case "Female": return femaleFirstNames.get(random.nextInt(femaleFirstNames.size()));
+            case "Last": return lastNames.get(random.nextInt(lastNames.size()));
+            default: return "ERROR";
         }
     }
 
