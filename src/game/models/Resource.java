@@ -21,6 +21,8 @@ public class Resource extends Quantifiable {
 
     public Resource(Resource resource) {
         this(resource.name, resource.type);
+        amount = resource.amount;
+        maxAmount = resource.maxAmount;
     }
 
     public int add(int amount) {

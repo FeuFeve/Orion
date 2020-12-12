@@ -1,14 +1,49 @@
 {
-  "saveName": "real save 1",
-  "startRealDate": "2020-12-11 20:43:41",
-  "lastSavedRealDate": "2020-12-11 20:43:59",
+  "saveName": "real save 1.json",
+  "startRealDate": "2020-12-12 23:27:29",
+  "lastSavedRealDate": "2020-12-12 23:27:37",
   "totalTicks": 0,
   "villagers": [
-    {},
-    {},
-    {},
-    {},
-    {}
+    {
+      "firstName": "Marjorie",
+      "lastName": "Eadse",
+      "sex": "Female",
+      "age": 32,
+      "properlyBuilt": true,
+      "name": "Marjorie Eadse"
+    },
+    {
+      "firstName": "Philberta",
+      "lastName": "Caulfielde",
+      "sex": "Female",
+      "age": 42,
+      "properlyBuilt": true,
+      "name": "Philberta Caulfielde"
+    },
+    {
+      "firstName": "Marjorie",
+      "lastName": "Claytone",
+      "sex": "Female",
+      "age": 20,
+      "properlyBuilt": true,
+      "name": "Marjorie Claytone"
+    },
+    {
+      "firstName": "Harper",
+      "lastName": "Duartep",
+      "sex": "Female",
+      "age": 11,
+      "properlyBuilt": true,
+      "name": "Harper Duartep"
+    },
+    {
+      "firstName": "Esmond",
+      "lastName": "Wymane",
+      "sex": "Male",
+      "age": 26,
+      "properlyBuilt": true,
+      "name": "Esmond Wymane"
+    }
   ],
   "buildings": [
     {
@@ -33,17 +68,17 @@
           "storage": [
             {
               "maxAmount": 0,
-              "amount": 40,
+              "amount": 20,
               "name": "Vegetables"
             },
             {
               "maxAmount": 0,
-              "amount": 60,
+              "amount": 30,
               "name": "Fruits"
             },
             {
               "maxAmount": 0,
-              "amount": 100,
+              "amount": 50,
               "name": "Meat"
             }
           ],
@@ -56,16 +91,19 @@
         "jobs": [],
         "storage": [
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 40,
             "name": "Vegetables"
           },
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 60,
             "name": "Fruits"
           },
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 100,
             "name": "Meat"
@@ -96,8 +134,8 @@
           "housing": 0,
           "jobs": [
             {
-              "occupied": 0,
-              "amount": 4,
+              "currentWorkers": 0,
+              "amount": 2,
               "name": "Farmer"
             }
           ],
@@ -105,7 +143,7 @@
           "yieldsPerSeason": [
             {
               "maxAmount": 0,
-              "amount": 40,
+              "amount": 20,
               "name": "Vegetables"
             }
           ]
@@ -116,19 +154,20 @@
         "housing": 0,
         "jobs": [
           {
-            "occupied": 0,
+            "currentWorkers": 0,
             "amount": 4,
             "name": "Farmer"
           }
         ],
-        "storage": [],
-        "yieldsPerSeason": [
+        "storage": [
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 40,
             "name": "Vegetables"
           }
-        ]
+        ],
+        "yieldsPerSeason": []
       },
       "amount": 2,
       "name": "Farm"
@@ -153,7 +192,7 @@
           "housing": 0,
           "jobs": [
             {
-              "occupied": 0,
+              "currentWorkers": 0,
               "amount": 4,
               "name": "Builder"
             }
@@ -178,18 +217,20 @@
         "housing": 0,
         "jobs": [
           {
-            "occupied": 0,
+            "currentWorkers": 0,
             "amount": 4,
             "name": "Builder"
           }
         ],
         "storage": [
           {
+            "type": "Material",
             "maxAmount": 0,
             "amount": 100,
             "name": "Wood"
           },
           {
+            "type": "Material",
             "maxAmount": 0,
             "amount": 50,
             "name": "Stone"
@@ -220,7 +261,7 @@
           "housing": 0,
           "jobs": [
             {
-              "occupied": 0,
+              "currentWorkers": 0,
               "amount": 2,
               "name": "Lumberjack"
             }
@@ -240,19 +281,20 @@
         "housing": 0,
         "jobs": [
           {
-            "occupied": 0,
+            "currentWorkers": 0,
             "amount": 2,
             "name": "Lumberjack"
           }
         ],
-        "storage": [],
-        "yieldsPerSeason": [
+        "storage": [
           {
+            "type": "Material",
             "maxAmount": 0,
             "amount": 10,
             "name": "Wood"
           }
-        ]
+        ],
+        "yieldsPerSeason": []
       },
       "amount": 1,
       "name": "Woodcutter"
@@ -261,47 +303,46 @@
   "jobs": [],
   "storage": [
     {
-      "maxAmount": 40,
-      "amount": 0,
+      "type": "Food",
+      "maxAmount": 80,
+      "amount": 140,
       "name": "Vegetables"
     },
     {
+      "type": "Food",
       "maxAmount": 60,
-      "amount": 0,
+      "amount": 110,
       "name": "Fruits"
     },
     {
+      "type": "Food",
       "maxAmount": 100,
-      "amount": 0,
+      "amount": 200,
       "name": "Meat"
     },
     {
-      "maxAmount": 100,
-      "amount": 0,
+      "type": "Food",
+      "maxAmount": 80,
+      "amount": 140,
+      "name": "Vegetables"
+    },
+    {
+      "type": "Material",
+      "maxAmount": 110,
+      "amount": 100,
       "name": "Wood"
     },
     {
+      "type": "Material",
       "maxAmount": 50,
-      "amount": 0,
+      "amount": 50,
       "name": "Stone"
     },
     {
-      "type": "Food",
-      "maxAmount": 0,
-      "amount": 0,
-      "name": "Vegetables"
-    },
-    {
-      "type": "Food",
-      "maxAmount": 0,
-      "amount": 0,
-      "name": "Fruits"
-    },
-    {
-      "type": "Food",
-      "maxAmount": 0,
-      "amount": 0,
-      "name": "Meat"
+      "type": "Material",
+      "maxAmount": 110,
+      "amount": 100,
+      "name": "Wood"
     }
   ]
 }

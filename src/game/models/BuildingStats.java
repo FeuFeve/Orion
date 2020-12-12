@@ -19,19 +19,22 @@ public class BuildingStats {
     public BuildingStats(int amount, BuildingConfig buildingConfig) {
         housing = buildingConfig.buildingStats.housing * amount;
 
-        jobs = new ArrayList<>(buildingConfig.buildingStats.jobs);
-        for (Job job : jobs) {
-            job.amount *= amount;
+        for (Job job : buildingConfig.buildingStats.jobs) {
+            Job newJob = new Job(job);
+            newJob.amount *= amount;
+            jobs.add(newJob);
         }
 
-        storage = new ArrayList<>(buildingConfig.buildingStats.storage);
-        for (Resource resource : storage) {
-            resource.amount *= amount;
+        for (Resource resource : buildingConfig.buildingStats.storage) {
+            Resource newResource = new Resource(resource);
+            newResource.amount *= amount;
+            storage.add(newResource);
         }
 
-        yieldsPerSeason = new ArrayList<>(buildingConfig.buildingStats.yieldsPerSeason);
-        for (Resource resource : yieldsPerSeason) {
-            resource.amount *= amount;
+        for (Resource resource : buildingConfig.buildingStats.yieldsPerSeason) {
+            Resource newResource = new Resource(resource);
+            newResource.amount *= amount;
+            storage.add(newResource);
         }
     }
 }

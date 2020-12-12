@@ -10,8 +10,14 @@ import java.util.List;
 
 public class Job extends Quantifiable {
 
-    public int occupied;
+    public int currentWorkers;
 
+
+    public Job(Job job) {
+        name = job.name;
+        amount = job.amount;
+        currentWorkers = job.currentWorkers;
+    }
 
     @SuppressWarnings("unchecked")
     public static List<Job> init(String filePath) {
