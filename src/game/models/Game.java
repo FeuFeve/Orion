@@ -37,6 +37,9 @@ public class Game {
             Building building = new Building(pair.getValue(), buildingConfig);
             buildings.add(building);
 
+            setResourcesTypes(building.buildingStats.storage);
+            setResourcesTypes(building.buildingStats.yieldsPerSeason);
+
             // Add resources from buildings storage lists to the game storage (maxAmount)
             for (Resource resource : building.buildingStats.storage) {
                 Resource storageResource;
@@ -70,6 +73,21 @@ public class Game {
             }
         }
         return this;
+    }
+
+    /**
+     * Set the resources types in the buildings lists, as the types are generally not specified in the config files.
+     * @param list  A building's list of resources
+     */
+    private static void setResourcesTypes(List<Resource> list) {
+        for (Resource resource : list) {
+            for (Resource referenceResource : GameData.resourceList) {
+                if (referenceResource.name.equals(resource.name)) {
+                    resource.type = referenceResource.type;
+                    break;
+                }
+            }
+        }
     }
 
     public void tick() {

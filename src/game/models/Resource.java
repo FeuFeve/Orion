@@ -60,7 +60,7 @@ public class Resource extends Quantifiable {
 
     @Override
     public String toString() {
-        return type + ": " + amount + "/" + maxAmount;
+        return name + ": " + amount + "/" + maxAmount;
     }
 
     @Override

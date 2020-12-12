@@ -1,48 +1,48 @@
 {
   "saveName": "real save 2.json",
-  "startRealDate": "2020-12-12 20:16:09",
-  "lastSavedRealDate": "2020-12-12 20:16:19",
+  "startRealDate": "2020-12-12 22:56:27",
+  "lastSavedRealDate": "2020-12-12 22:56:41",
   "totalTicks": 0,
   "villagers": [
     {
-      "firstName": "Eda",
-      "lastName": "Thorleye",
+      "firstName": "Alfreda",
+      "lastName": "Wescotte",
       "sex": "Female",
-      "age": 3,
+      "age": 36,
       "properlyBuilt": true,
-      "name": "Eda Thorleye"
+      "name": "Alfreda Wescotte"
     },
     {
-      "firstName": "Clifford",
-      "lastName": "Brookee",
+      "firstName": "Benton",
+      "lastName": "Caulfielde",
       "sex": "Male",
-      "age": 35,
+      "age": 0,
       "properlyBuilt": true,
-      "name": "Clifford Brookee"
+      "name": "Benton Caulfielde"
     },
     {
-      "firstName": "Edmonda",
-      "lastName": "Hookere",
+      "firstName": "Audie",
+      "lastName": "Waters",
+      "sex": "Female",
+      "age": 23,
+      "properlyBuilt": true,
+      "name": "Audie Waters"
+    },
+    {
+      "firstName": "Irvette",
+      "lastName": "Eadse",
       "sex": "Female",
       "age": 11,
       "properlyBuilt": true,
-      "name": "Edmonda Hookere"
+      "name": "Irvette Eadse"
     },
     {
-      "firstName": "Valora",
-      "lastName": "Ewart",
+      "firstName": "Fairley",
+      "lastName": "Hookere",
       "sex": "Female",
-      "age": 0,
+      "age": 16,
       "properlyBuilt": true,
-      "name": "Valora Ewart"
-    },
-    {
-      "firstName": "Blossom",
-      "lastName": "Horne",
-      "sex": "Female",
-      "age": 14,
-      "properlyBuilt": true,
-      "name": "Blossom Horne"
+      "name": "Fairley Hookere"
     }
   ],
   "buildings": [
@@ -67,16 +67,19 @@
           "jobs": [],
           "storage": [
             {
+              "type": "Food",
               "maxAmount": 0,
               "amount": 40,
               "name": "Vegetables"
             },
             {
+              "type": "Food",
               "maxAmount": 0,
               "amount": 60,
               "name": "Fruits"
             },
             {
+              "type": "Food",
               "maxAmount": 0,
               "amount": 100,
               "name": "Meat"
@@ -91,16 +94,19 @@
         "jobs": [],
         "storage": [
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 40,
             "name": "Vegetables"
           },
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 60,
             "name": "Fruits"
           },
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 100,
             "name": "Meat"
@@ -139,6 +145,7 @@
           "storage": [],
           "yieldsPerSeason": [
             {
+              "type": "Food",
               "maxAmount": 0,
               "amount": 40,
               "name": "Vegetables"
@@ -159,6 +166,7 @@
         "storage": [],
         "yieldsPerSeason": [
           {
+            "type": "Food",
             "maxAmount": 0,
             "amount": 40,
             "name": "Vegetables"
@@ -195,11 +203,13 @@
           ],
           "storage": [
             {
+              "type": "Material",
               "maxAmount": 0,
               "amount": 100,
               "name": "Wood"
             },
             {
+              "type": "Material",
               "maxAmount": 0,
               "amount": 50,
               "name": "Stone"
@@ -220,11 +230,13 @@
         ],
         "storage": [
           {
+            "type": "Material",
             "maxAmount": 0,
             "amount": 100,
             "name": "Wood"
           },
           {
+            "type": "Material",
             "maxAmount": 0,
             "amount": 50,
             "name": "Stone"
@@ -263,6 +275,7 @@
           "storage": [],
           "yieldsPerSeason": [
             {
+              "type": "Material",
               "maxAmount": 0,
               "amount": 10,
               "name": "Wood"
@@ -283,6 +296,7 @@
         "storage": [],
         "yieldsPerSeason": [
           {
+            "type": "Material",
             "maxAmount": 0,
             "amount": 10,
             "name": "Wood"
@@ -296,47 +310,34 @@
   "jobs": [],
   "storage": [
     {
+      "type": "Food",
       "maxAmount": 40,
-      "amount": 0,
+      "amount": 100,
       "name": "Vegetables"
     },
     {
+      "type": "Food",
       "maxAmount": 60,
-      "amount": 0,
+      "amount": 50,
       "name": "Fruits"
     },
     {
+      "type": "Food",
       "maxAmount": 100,
-      "amount": 0,
+      "amount": 100,
       "name": "Meat"
     },
     {
+      "type": "Material",
       "maxAmount": 100,
       "amount": 0,
       "name": "Wood"
     },
     {
+      "type": "Material",
       "maxAmount": 50,
       "amount": 0,
       "name": "Stone"
-    },
-    {
-      "type": "Food",
-      "maxAmount": 0,
-      "amount": 0,
-      "name": "Vegetables"
-    },
-    {
-      "type": "Food",
-      "maxAmount": 0,
-      "amount": 0,
-      "name": "Fruits"
-    },
-    {
-      "type": "Food",
-      "maxAmount": 0,
-      "amount": 0,
-      "name": "Meat"
     }
   ]
 }
